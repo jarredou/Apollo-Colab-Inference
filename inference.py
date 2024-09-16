@@ -68,5 +68,6 @@ if __name__ == "__main__":
     parser.add_argument("--out_wav", type=str, required=True, help="Path to output wav file")
     parser.add_argument("--chunk_size", type=int, help="chunk size value in seconds", default=30)
     args = parser.parse_args()
-    print(f'chunk_size = {args.chunk_size}')
+    chunk_size = args.chunk_size
+    print(f'chunk_size = {chunk_size}')
     main(args.in_wav, args.out_wav)
