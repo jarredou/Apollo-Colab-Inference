@@ -10,4 +10,4 @@ v0.1
 - added dual mono processing (processing each channel independently)
 ---
 
-Original work [Apollo: Band-sequence Modeling for High-Quality Music Restoration in Compressed Audio](https://cslikai.cn/Apollo/) 
+Original work [Apollo: Band-sequence Modeling for High-Quality Music Restoration in Compressed Audio](https://github.com/JusperLee/Apollo) 
