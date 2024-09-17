@@ -5,9 +5,12 @@ Apollo audio restoration Colab fork
 
 Colab adaptation of Apollo audio restoration, with some tweaks:
 
-v0.1
+**v0.2**
+- added overlap feature
+
+**v0.1**
 - added chunking for long audio inputs
-- added "dual mono" processing for stereo audio input (processing each channel independently)
+- ~~added "dual mono" processing for stereo audio input (processing each channel independently)~~
 ---
 
 Original work [Apollo: Band-sequence Modeling for High-Quality Music Restoration in Compressed Audio](https://github.com/JusperLee/Apollo) 
