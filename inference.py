@@ -113,7 +113,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Audio Inference Script")
     parser.add_argument("--in_wav", type=str, required=True, help="Path to input wav file")
     parser.add_argument("--out_wav", type=str, required=True, help="Path to output wav file")
-    parser.add_argument("--chunk_size", type=int, help="chunk size value in seconds", default=10)
+    parser.add_argument("--chunk_size", type=int, help="chunk size value in seconds", default=3)
     parser.add_argument("--overlap", type=int, help="Overlap", default=2)
     args = parser.parse_args()
     
