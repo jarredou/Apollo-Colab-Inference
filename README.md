@@ -7,6 +7,7 @@ Colab adaptation of Apollo audio restoration, with some tweaks:
 
 **v0.2**
 - added overlap feature
+- new inference.py created for easier local CLI use
 
 **v0.1**
 - added chunking for long audio inputs
