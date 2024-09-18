@@ -1,9 +1,13 @@
-# Apollo-Colab-Inference
-Apollo audio restoration Colab fork
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jarredou/Apollo-Colab-Inference/blob/main/Apollo_Audio_Restoration_Colab.ipynb)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q811R5YI)  
+# Apollo-Colab-Inference [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jarredou/Apollo-Colab-Inference/blob/main/Apollo_Audio_Restoration_Colab.ipynb)  
 
-Colab adaptation of Apollo audio restoration, with some tweaks:
+Original work [Apollo: Band-sequence Modeling for High-Quality Music Restoration in Compressed Audio](https://github.com/JusperLee/Apollo) 
+
+Apollo audio restoration Colab fork  
+The model was trained to restore/enhance lossy mp3 audio with bitrate <= 128 kbps.
+
+
 
 **v0.2**
 - added overlap feature
@@ -14,4 +18,4 @@ Colab adaptation of Apollo audio restoration, with some tweaks:
 - ~~added "dual mono" processing for stereo audio input (processing each channel independently)~~
 ---
 
-Original work [Apollo: Band-sequence Modeling for High-Quality Music Restoration in Compressed Audio](https://github.com/JusperLee/Apollo) 
+
