@@ -26,7 +26,8 @@ def process_chunk(chunk):
         return model(chunk).squeeze(0).squeeze(0).cpu()
 
 def _getWindowingArray(window_size, fade_size):
-    # no fades here in the end, removing the failed ending of the chunk
+    # IMPORTANT NOTE :
+    # no fades here in the end, only removing the failed ending of the chunk
     fadein = torch.linspace(1, 1, fade_size)
     fadeout = torch.linspace(0, 0, fade_size)
     window = torch.ones(window_size)
@@ -51,7 +52,7 @@ def main(input_wav, output_wav):
     C = chunk_size * samplerate  # chunk_size seconds to samples
     N = overlap
     step = C // N
-    fade_size = 2 * 44100 # 2 seconds
+    fade_size = 3 * 44100 # 3 seconds
     print(f"N = {N} | C = {C} | step = {step} | fade_size = {fade_size}")
     
     border = C - step
