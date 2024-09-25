@@ -56,6 +56,10 @@ def main(input_wav, output_wav):
     print(f"N = {N} | C = {C} | step = {step} | fade_size = {fade_size}")
     
     border = C - step
+    
+    # handle mono inputs correctly
+    if len(test_data.shape) == 1:
+        test_data = test_data.unsqueeze(0) 
 
     # Pad the input if necessary
     if test_data.shape[1] > 2 * border and (border > 0):
