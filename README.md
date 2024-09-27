@@ -9,6 +9,8 @@ Apollo audio restoration Colab fork
 The model was trained to restore/enhance lossy mp3 audio with bitrate <= 128 kbps.
 
 
+**v0.3**
+- lew's separated vocals enhancer model added
 
 **v0.2**
 - added overlap feature
