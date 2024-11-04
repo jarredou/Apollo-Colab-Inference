@@ -6,9 +6,18 @@ import soundfile as sf
 from tqdm.auto import tqdm
 import argparse
 import numpy as np
+import yaml
+from ml_collections import ConfigDict
+#from omegaconf import OmegaConf
 
 import warnings
 warnings.filterwarnings("ignore")
+
+def get_config(config_path):
+    with open(config_path) as f:
+        #config = OmegaConf.load(config_path)
+        config = ConfigDict(yaml.load(f, Loader=yaml.FullLoader))
+        return config
 
 def load_audio(file_path):
     audio, samplerate = librosa.load(file_path, mono=False, sr=44100)
@@ -45,7 +54,11 @@ def main(input_wav, output_wav, ckpt_path):
     os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
     global model
-    model = look2hear.models.BaseModel.from_pretrain(ckpt_path, sr=44100, win=20, feature_dim=256, layer=6).cuda()
+    feature_dim = config['model']['feature_dim']
+    sr = config['model']['sr']
+    win = config['model']['win']
+    layer = config['model']['layer']
+    model = look2hear.models.BaseModel.from_pretrain(ckpt_path, sr=sr, win=win, feature_dim=feature_dim, layer=layer).cuda()
 
     test_data, samplerate = load_audio(input_wav)
     
@@ -119,6 +132,7 @@ if __name__ == "__main__":
     parser.add_argument("--in_wav", type=str, required=True, help="Path to input wav file")
     parser.add_argument("--out_wav", type=str, required=True, help="Path to output wav file")
     parser.add_argument("--ckpt", type=str, required=True, help="Path to model checkpoint file", default="model/pytorch_model.bin")
+    parser.add_argument("--config", type=str, help="Path to model config file", default="config/apollo.yaml")
     parser.add_argument("--chunk_size", type=int, help="chunk size value in seconds", default=10)
     parser.add_argument("--overlap", type=int, help="Overlap", default=2)
     args = parser.parse_args()
@@ -126,10 +140,11 @@ if __name__ == "__main__":
     ckpt_path = args.ckpt
     chunk_size = args.chunk_size
     overlap = args.overlap
+    config = get_config(args.config)
+    print(config['model'])
     print(f'ckpt_path = {ckpt_path}')
+    #print(f'config = {config}')
     print(f'chunk_size = {chunk_size}, overlap = {overlap}')
     
-    
-
 
     main(args.in_wav, args.out_wav, ckpt_path)
